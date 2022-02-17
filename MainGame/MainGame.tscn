@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Audio/backgroundMusic.wav" type="AudioStream" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://MainGame/MainGame.gd" type="Script" id=4]
 [ext_resource path="res://Enemy/Enemies.gd" type="Script" id=5]
+[ext_resource path="res://MainGame/leftBorder.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.9622, 380.576 )
@@ -21,6 +22,7 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+countdownMax = 420
 
 [node name="HUD" type="HBoxContainer" parent="."]
 margin_right = 40.0
@@ -42,8 +44,9 @@ __meta__ = {
 position = Vector2( -1.53629, 369.479 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border_Left"]
-position = Vector2( -5.37704, -0.768158 )
+position = Vector2( -3.42904, -0.768158 )
 shape = SubResource( 1 )
+script = ExtResource( 6 )
 
 [node name="Border_Right" type="Area2D" parent="." groups=[
 "right",
