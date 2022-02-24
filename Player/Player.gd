@@ -21,11 +21,9 @@ func _physics_process(delta):
 		if position.x >= 1298.94:
 			position.x = -37
 		move_and_collide(Vector2(movement_speed * delta, 0))
-		
-func _process(delta):
 	if Input.is_action_just_pressed("fire"):
 		var bulletInstance = bulletSource.instance()
-		bulletInstance.position - Vector2(position.x, position.y-20)
+		bulletInstance.position = Vector2(position.x, position.y-20)
 		get_tree().get_root().add_child(bulletInstance)
 	# original broken code was:
 	# if position.x <= (10):
