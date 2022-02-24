@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 500
+var speed = 69420
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
