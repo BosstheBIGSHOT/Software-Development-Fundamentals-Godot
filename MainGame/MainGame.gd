@@ -14,3 +14,6 @@ func _ready():
 		currentTimer = currentTimer - 1
 		print(currentTimer)
 	$HUD/Countdown.text = str("Game Over")
+	
+func _process(delta):
+	$HUD/Countdown.text = str(GlobalVariables.scoringInformation["currentScore"])
