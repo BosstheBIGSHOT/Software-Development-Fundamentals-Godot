@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Audio/backgroundMusic.wav" type="AudioStream" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://MainGame/MainGame.gd" type="Script" id=4]
 [ext_resource path="res://Enemy/Enemies.gd" type="Script" id=5]
 [ext_resource path="res://MainGame/leftBorder.gd" type="Script" id=6]
+[ext_resource path="res://Images/GOD.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.9622, 380.576 )
@@ -14,10 +15,10 @@ extents = Vector2( 20.9622, 380.576 )
 extents = Vector2( 662.058, 10 )
 
 [node name="SpaceInvaders" type="Control"]
-margin_left = -0.768188
-margin_top = 1.23187
-margin_right = 1279.23
-margin_bottom = 721.232
+margin_left = -1.37465
+margin_top = -6.06571
+margin_right = 1278.62
+margin_bottom = 713.934
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -38,6 +39,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Popup" type="Popup" parent="HUD/Countdown"]
+margin_top = -13.0
+margin_right = 1253.0
+margin_bottom = 714.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="HUD/Countdown/Popup"]
+position = Vector2( 629.396, 360.409 )
+scale = Vector2( 35.9665, 16.3365 )
+texture = ExtResource( 7 )
+
 [node name="CurrentScoreLabel" type="Label" parent="HUD"]
 margin_left = 4.0
 margin_top = 13.0
@@ -50,6 +64,9 @@ margin_left = 94.0
 margin_top = 13.0
 margin_right = 94.0
 margin_bottom = 27.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Border_Left" type="Area2D" parent="." groups=[
 "left",

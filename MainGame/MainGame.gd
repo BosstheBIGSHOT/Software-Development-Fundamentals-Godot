@@ -16,4 +16,4 @@ func _ready():
 	$HUD/Countdown.text = str("Game Over")
 	
 func _process(delta):
-	$HUD/Countdown.text = str(GlobalVariables.scoringInformation["currentScore"])
+	$HUD/CurrentScore.text = str(GlobalVariables.scoringInformation["currentScore"])
