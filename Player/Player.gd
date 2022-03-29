@@ -26,7 +26,7 @@ func _physics_process(delta):
 		move_and_collide(Vector2(vertical_speed * delta, -10))
 	if Input.is_action_pressed("ui_down"):
 		move_and_collide(Vector2(vertical_speed * delta, 10))
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_pressed("fire"):
 		var bulletInstance = bulletSource.instance()
 		bulletInstance.position = Vector2(position.x, position.y-20)
 		get_tree().get_root().add_child(bulletInstance)

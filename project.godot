@@ -16,12 +16,16 @@ _global_script_class_icons={
 [application]
 
 config/name="Software Development Fundamentals Godot"
-run/main_scene="res://MainGame/MainGame.tscn"
+run/main_scene="res://menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 GlobalVariables="*res://Global.gd"
+
+[debug]
+
+settings/crash_handler/message="Run"
 
 [display]
 
