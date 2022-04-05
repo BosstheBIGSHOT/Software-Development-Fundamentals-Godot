@@ -14,9 +14,13 @@ func _ready():
 		currentTimer = currentTimer - 1
 		print(currentTimer)
 	$HUD/Countdown.text = str("Game Over")
+	GlobalVariables.previousScores.push_front( GlobalVariables.scoringInformation["currentScore"])
+	print(GlobalVariables.previousScores)
+	get_tree().change_scene("res://MainGame/menu.tscn")
+	if GlobalVariables.scoringInformation["currentScore"] > GlobalVariables.scoringInformation["highScore"]:
+		GlobalVariables.scoringInformation["currentScore"] = GlobalVariables.scoringInformation["highScore"]
 	
 func _process(delta):
 	$HUD/CurrentScore.text = str(GlobalVariables.scoringInformation["currentScore"])
-	$HUD/HighScore.text = str(GlobalVariables.scoringInformation["highScore"])
 	#if "highScore" <= "currentScore":
 		#"highScore" = "currentScore"
