@@ -18,3 +18,7 @@ func _ready():
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://MainGame/menu.tscn")
+
+
+func _on_SecretCheatScreen_pressed():
+	get_tree().change_scene("res://MainGame/SecretCheatScreen.tscn")
