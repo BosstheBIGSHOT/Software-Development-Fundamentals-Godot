@@ -91,4 +91,7 @@ margin_right = 198.0
 margin_bottom = 176.0
 text = "Super Secret Cheating Screen"
 [connection signal="pressed" from="Layout/Main/VBoxContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="toggled" from="Layout/Main/VBoxContainer/HardMode" to="." method="_on_HardMode_toggled"]
+[connection signal="toggled" from="Layout/Main/VBoxContainer/Sounds" to="." method="_on_Sounds_toggled"]
+[connection signal="toggled" from="Layout/Main/VBoxContainer/Music" to="." method="_on_Music_toggled"]
 [connection signal="pressed" from="Layout/Main/VBoxContainer/SecretCheatScreen" to="." method="_on_SecretCheatScreen_pressed"]

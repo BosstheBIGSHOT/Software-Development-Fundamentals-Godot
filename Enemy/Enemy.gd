@@ -9,14 +9,20 @@ func _ready():
 	
 
 func _colliding(area):
-	if area.is_in_group("right"):
-		#print("emenies collide right")
-		get_parent().global_position.y += 10
-		get_parent().speed = -200
-	if area.is_in_group("left"):
-		#print("emenies collide left")
-		get_parent().global_position.y += 10
-		get_parent().speed = 200
+	if GlobalVariables.hardMode:
+		if area.is_in_group("right"):
+			get_parent().global_position.y += 10
+			get_parent().speed = -600
+		if area.is_in_group("left"):
+			get_parent().global_position.y += 10
+			get_parent().speed = 600
+	else:
+		if area.is_in_group("right"):
+			get_parent().global_position.y += 10
+			get_parent().speed = -200
+		if area.is_in_group("left"):
+			get_parent().global_position.y += 10
+			get_parent().speed = 200
 
 
 func _process(delta):

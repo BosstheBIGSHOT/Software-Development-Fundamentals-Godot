@@ -10,6 +10,10 @@ func _ready():
 
 func _physics_process(delta):
 	var collidedObject = move_and_collide(Vector2(0, +speed*delta*0.4))
+	if GlobalVariables.hardMode:
+		move_and_collide(Vector2(speed * delta, 10))
+	else:
+		move_and_collide(Vector2(speed))
 	if (collidedObject):
 		#print("Enemy collide: ",collidedObject.collider.name)
 		if "Enemy" in collidedObject.collider.name:
