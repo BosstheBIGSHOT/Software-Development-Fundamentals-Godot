@@ -10,10 +10,13 @@ func _ready():
 
 func _physics_process(delta):
 	var collidedObject = move_and_collide(Vector2(0, +speed*delta*0.4))
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var my_random_number = rng.randf_range(1.0, 50000.0)
 	if GlobalVariables.hardMode:
-		move_and_collide(Vector2(speed * delta, 10))
+		speed = my_random_number
 	else:
-		move_and_collide(Vector2(speed))
+		speed = 500
 	if (collidedObject):
 		#print("Enemy collide: ",collidedObject.collider.name)
 		if "Enemy" in collidedObject.collider.name:
@@ -23,3 +26,7 @@ func _physics_process(delta):
 			queue_free()
 			GlobalVariables.enemyBulletInstanceCount -= 1
 			print("Enemy Bullets: ", GlobalVariables.enemyBulletInstanceCount)
+		if "Player" in collidedObject.collider.name:
+			get_tree().change_scene("res://MainGame/Loose.tscn")
+			queue_free()
+

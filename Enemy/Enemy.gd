@@ -9,13 +9,16 @@ func _ready():
 	
 
 func _colliding(area):
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var my_random_number = rng.randf_range(1.0, 50000.0)
 	if GlobalVariables.hardMode:
 		if area.is_in_group("right"):
 			get_parent().global_position.y += 10
-			get_parent().speed = -600
+			get_parent().speed = -my_random_number
 		if area.is_in_group("left"):
 			get_parent().global_position.y += 10
-			get_parent().speed = 600
+			get_parent().speed = my_random_number
 	else:
 		if area.is_in_group("right"):
 			get_parent().global_position.y += 10
