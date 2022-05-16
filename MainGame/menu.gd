@@ -6,7 +6,13 @@ export(int) var leaderBoard
 func _ready():
 	leaderBoard = GlobalVariables.previousScores
 	$Layout/LeaderBoard/LeaderboardScores.text = str(GlobalVariables.previousScores)
-
+	var file = File.new()
+	if file.file_exists(GlobalVariables.saveFile):
+		var error = file.open(GlobalVariables.saveFile, File.READ)
+		if error == OK:
+			var player_data = file.get_var()
+			file.close()
+			GlobalVariables.scoringInformation = player_data
 
 
 func _on_Start_pressed():

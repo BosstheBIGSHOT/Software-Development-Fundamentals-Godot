@@ -1,20 +1,32 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	# Sorts the array
+	GlobalVariables.scoringInformation["highScores"].sort()
+	
+	# Searches the array for the value, or the position in the array where it will "fit".
+	var highScorePosition = GlobalVariables.scoringInformation["highScores"].bsearch(GlobalVariables.scoringInformation["currentScore"], true)
+	print("position #", highScorePosition)
+	
+	# Inserts the value into the array at the correct position.
+	GlobalVariables.scoringInformation["highScores"].insert(highScorePosition, GlobalVariables.scoringInformation["currentScore"])
+	
+	# Removes the first (and lowest) score.
+	GlobalVariables.scoringInformation["highScores"].remove(0)
+	
+	# Debugging.
+	print(GlobalVariables.scoringInformation["highScores"])
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://MainGame/menu.tscn")
+	
+func saveData():
+	var file = File.new()
+	var error = file.open(GlobalVariables.saveFile, file.WRITE)
+	if error == OK:
+		file.store_var(GlobalVariables.scoringInformation)
+		file.close()
+		print("!!Data Saved!!")
+	else :
+		print("!!Data Not Saved!!")
