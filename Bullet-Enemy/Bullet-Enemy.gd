@@ -13,12 +13,14 @@ func _physics_process(delta):
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var my_random_number = rng.randf_range(1.0, 50000.0)
+	# make hard mode speed random
 	if GlobalVariables.hardMode:
 		speed = my_random_number
 	else:
 		speed = 500
 	if (collidedObject):
 		#print("Enemy collide: ",collidedObject.collider.name)
+		# Pass enemy
 		if "Enemy" in collidedObject.collider.name:
 			pass
 			#collidedObject.get_collider().queue_free() #Don't kill the enemies.
@@ -26,6 +28,7 @@ func _physics_process(delta):
 			queue_free()
 			GlobalVariables.enemyBulletInstanceCount -= 1
 			print("Enemy Bullets: ", GlobalVariables.enemyBulletInstanceCount)
+		# kill player
 		if "Player" in collidedObject.collider.name:
 			get_tree().change_scene("res://MainGame/Loose.tscn")
 			queue_free()

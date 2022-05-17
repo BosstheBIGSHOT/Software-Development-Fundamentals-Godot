@@ -18,9 +18,11 @@ func _ready():
 	# Debugging.
 	print(GlobalVariables.scoringInformation["highScores"])
 
+# Going back to the main menu
 func _on_Button_pressed():
 	get_tree().change_scene("res://MainGame/menu.tscn")
 	
+# Saving the Data
 func saveData():
 	var file = File.new()
 	var error = file.open(GlobalVariables.saveFile, file.WRITE)
